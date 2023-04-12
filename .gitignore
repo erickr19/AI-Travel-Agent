@@ -17,6 +17,7 @@
 *.iws
 *.iml
 *.ipr
+.idea/*
 
 ### Mac OS ###
 .DS_Store
