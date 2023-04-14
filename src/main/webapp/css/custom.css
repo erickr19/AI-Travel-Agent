@@ -2,3 +2,12 @@
     height: 50px;
     width: 50px;
 }
+.custom-text-sky-blue {
+    color: #6096BA;
+}
+.custom-bg-sky-blue {
+    background-color: #6096BA;
+}
+.custom-text-light-gold {
+    color: #FDD087;
+}

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<nav class="navbar navbar-expand-lg mt-2 mb-5 bg-white rounded shadow sticky-top">
+<nav class="navbar navbar-expand-lg mt-2 mb-3 bg-white rounded shadow sticky-top">
     <div class="container-fluid">
         <%-- logo --%>
         <img src="images/pixel-airplane.png" class="plane-logo-sizing">
