@@ -8,6 +8,7 @@ import testUtils.Database;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -66,23 +67,54 @@ class ItineraryDaoTest {
         assertEquals(user.getId(), insertedItinerary.getUser().getId());
     }
 
+    /**
+     * Tests getting by id
+     */
     @Test
     void getById() {
+        // get itinerary
+        Itinerary retrievedItinerary = (Itinerary)itineraryDao.getById(2);
+        // test
+        assertEquals(2, retrievedItinerary.getId().intValue());
     }
 
     @Test
     void update() {
+        // get itinerary
+        Itinerary updatedItinerary = (Itinerary)itineraryDao.getById(1);
+        // create a new date
+        LocalDate newDate = LocalDate.of(2023, 5, 15);
+        // set new date
+        updatedItinerary.setTravelDate(newDate);
+        // update
+        itineraryDao.update(updatedItinerary);
+        // get updated itinerary
+        Itinerary itinerary = (Itinerary)itineraryDao.getById(1);
+        // test
+        assertEquals(newDate, itinerary.getTravelDate());
     }
 
     @Test
     void delete() {
+        // get itinerary to delete
+        Itinerary itineraryToDelete = (Itinerary)itineraryDao.getById(1);
+        // delete itinerary
+        itineraryDao.delete(itineraryToDelete);
+        // test
+        assertNull((Itinerary)itineraryDao.getById(1));
     }
 
     @Test
     void getAll() {
+        // test
+        assertEquals(2, itineraries.size());
     }
 
     @Test
     void findByPropertyEqual() {
+        // find itineraries
+        List foundItineraries = itineraryDao.findByPropertyEqual("travelDate", LocalDate.of(2024, 5, 11));
+        // test
+        assertEquals(1, foundItineraries.size());
     }
 }

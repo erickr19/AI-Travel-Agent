@@ -33,7 +33,7 @@ CREATE TABLE `Itineraries` (
   PRIMARY KEY (`itinerary_id`),
   KEY `Itineraries_Users` (`user_id`),
   CONSTRAINT `Itineraries_Users` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE `Itineraries` (
 --
 
 LOCK TABLES `Itineraries` WRITE;
+INSERT INTO `Itineraries` (`itinerary_id`, `itinerary`, `budget`, `travel_date`, `notes`, `user_id`, `title`) VALUES (1,'Day 1: Arrive in Madrid and explore the city. Visit attractions such as Plaza Mayor, Palacio Real, Puerta del Sol and Gran Via.',2000,'2024-05-11','Getting to know Spain for the first time!',1,'Week-long trip to Spain!'),(2,'Day 1: Arrive in Chicago and explore the city. Visit locations such as the Willis Tower, Navy Pier, and Millennium Park.',1000,'2024-07-10','Leisure travel to Chicago',1,'Short trip to Chicago!');
 UNLOCK TABLES;
 
 --
@@ -76,4 +77,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-14  0:40:20
+-- Dump completed on 2023-04-14  6:54:25

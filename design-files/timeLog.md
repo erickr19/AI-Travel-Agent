@@ -24,4 +24,13 @@ with the following:
 ###### Delete
 
 - User can delete their itineraries if they change their mind of the trip
+
 #### 4/12
+I set up the project foundations such as the pom.xml with dependencies. Added needed directories to display a basic front end.
+I started to work on the front end and got a good portion of it done!
+
+#### 4/13
+Finished up most of the front end code. There are some pages that I need to fix and refactor once I get a user creation/authentication service going.
+I designed and created the database for the project using Vertabelo. I got to work on the ORM portion of the project and got the entities setup and mapped.
+I added the needed testing utils such as database, properties loader, hibernate.cfg.xml, etc.
+I got the first test for ItineraryDao to pass which was the insert test. I will continue work tomorrow!
