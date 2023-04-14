@@ -3,7 +3,7 @@
   User: ereyes3
   Date: 4/12/23
   Time: 2:46 PM
-  To change this template use File | Settings | File Templates.
+  Navigation component.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav class="navbar navbar-expand-lg mt-2 mb-3 bg-white rounded shadow sticky-top">
@@ -21,7 +21,7 @@
                     <a class="nav-link" href="index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Create</a>
+                    <a class="nav-link" href="create.jsp">Create</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Login</a>
