@@ -26,6 +26,7 @@
     <json-version>20170516</json-version>
     <commons-io-version>2.11.0</commons-io-version>
     <jersey-version>2.29.1</jersey-version>
+    <openai-version>0.12.0</openai-version>
   </properties>
   <dependencies>
     <!-- hibernate -->
@@ -131,6 +132,12 @@
       <groupId>org.glassfish.jersey.inject</groupId>
       <artifactId>jersey-hk2</artifactId>
       <version>${jersey-version}</version>
+    </dependency>
+    <!-- OpenAI -->
+    <dependency>
+      <groupId>com.theokanning.openai-gpt3-java</groupId>
+      <artifactId>api</artifactId>
+      <version>${openai-version}</version>
     </dependency>
   </dependencies>
   <build>

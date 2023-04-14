@@ -3,7 +3,9 @@ package com.aiagent.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -30,7 +32,7 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user")
-    private Set<Itinerary> itineraries = new LinkedHashSet<>();
+    private List<Itinerary> itineraries = new ArrayList<>();
 
     /**
      * Empty constructor
@@ -105,7 +107,7 @@ public class User {
      * Gets itineraries
      * @return user's itineraries
      */
-    public Set<Itinerary> getItineraries() {
+    public List<Itinerary> getItineraries() {
         return itineraries;
     }
 
@@ -113,7 +115,7 @@ public class User {
      * Sets itineraries
      * @param itineraries set of itineraries
      */
-    public void setItineraries(Set<Itinerary> itineraries) {
+    public void setItineraries(List<Itinerary> itineraries) {
         this.itineraries = itineraries;
     }
 

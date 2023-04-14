@@ -8,7 +8,11 @@
 }
 .custom-bg-sky-blue {
     background-color: #6096BA;
+    transition: all 0.3s;
 }
 .custom-text-light-gold {
     color: #FDD087;
+}
+.custom-bg-sky-blue:hover {
+    background-color: #4b84AA;
 }

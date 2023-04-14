@@ -34,7 +34,6 @@ public class Homepage extends HttpServlet {
             String url = "/index.jsp";
             // set page title
             request.setAttribute("pageTitle", "Fly with AI!");
-            logger.debug("pageTitle: " + request.getAttribute("pageTitle"));
             // get dispatcher
             RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
             // forward
