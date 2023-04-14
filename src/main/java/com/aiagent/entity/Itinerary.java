@@ -40,6 +40,10 @@ public class Itinerary {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Size(max = 50)
+    @Column(name = "title", length = 50)
+    private String title;
+
     /**
      * Empty constructor
      */
@@ -141,4 +145,19 @@ public class Itinerary {
         this.user = user;
     }
 
+    /**
+     * Gets title
+     * @return itinerary title
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * Sets title
+     * @param title title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

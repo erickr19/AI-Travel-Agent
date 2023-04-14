@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.32, for macos13 (arm64)
 --
--- Host: 127.0.0.1    Database: AI-Travel-Agent
+-- Host: 127.0.0.1    Database: Test-AI-Travel-Agent
 -- ------------------------------------------------------
 -- Server version	8.0.32
 
@@ -29,6 +29,7 @@ CREATE TABLE `Itineraries` (
   `travel_date` date NOT NULL,
   `notes` varchar(200) NOT NULL,
   `user_id` int NOT NULL,
+  `title` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`itinerary_id`),
   KEY `Itineraries_Users` (`user_id`),
   CONSTRAINT `Itineraries_Users` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -55,7 +56,7 @@ CREATE TABLE `Users` (
   `username` varchar(20) NOT NULL,
   `email` varchar(60) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +64,7 @@ CREATE TABLE `Users` (
 --
 
 LOCK TABLES `Users` WRITE;
+INSERT INTO `Users` (`user_id`, `first_name`, `username`, `email`) VALUES (1,'Erick','ereyes3','ereyes3@madisoncollege.edu');
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -74,4 +76,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-13 22:49:27
+-- Dump completed on 2023-04-14  0:40:20
