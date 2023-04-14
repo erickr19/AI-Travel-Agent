@@ -55,7 +55,6 @@ public class GenericDao<T> {
         try (Session session = getSession()) {
             tx = session.beginTransaction();
             id = (int)session.save(entity);
-            logger.info(entity + " inserted into database successfully!");
             tx.commit();
         } catch (HibernateException hibernateE) {
             if (tx != null) tx.rollback();
