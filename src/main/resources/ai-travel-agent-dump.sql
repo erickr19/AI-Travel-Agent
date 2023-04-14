@@ -25,9 +25,9 @@ DROP TABLE IF EXISTS `Itineraries`;
 CREATE TABLE `Itineraries` (
   `itinerary_id` int NOT NULL AUTO_INCREMENT,
   `itinerary` varchar(1000) NOT NULL,
-  `budget` int NOT NULL,
-  `travel_date` date NOT NULL,
-  `notes` varchar(200) NOT NULL,
+  `budget` int DEFAULT NULL,
+  `travel_date` date DEFAULT NULL,
+  `notes` varchar(200) DEFAULT NULL,
   `user_id` int NOT NULL,
   `title` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`itinerary_id`),
@@ -57,7 +57,7 @@ CREATE TABLE `Users` (
   `username` varchar(20) NOT NULL,
   `email` varchar(60) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `Users` (
 --
 
 LOCK TABLES `Users` WRITE;
-INSERT INTO `Users` (`user_id`, `first_name`, `username`, `email`) VALUES (1,'Erick','ereyes3','ereyes3@madisoncollege.edu');
+INSERT INTO `Users` (`user_id`, `first_name`, `username`, `email`) VALUES (1,'Erick','ereyes3','ereyes4@madisoncollege.edu'),(2,'Lily','lileee','lilyE@123.com');
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -77,4 +77,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-14  6:54:25
+-- Dump completed on 2023-04-14  7:56:57

@@ -21,17 +21,14 @@ public class Itinerary {
     @Column(name = "itinerary", nullable = false, length = 1000)
     private String itinerary;
 
-    @NotNull
-    @Column(name = "budget", nullable = false)
+    @Column(name = "budget", nullable = true)
     private Integer budget;
 
-    @NotNull
-    @Column(name = "travel_date", nullable = false)
+    @Column(name = "travel_date", nullable = true)
     private LocalDate travelDate;
 
     @Size(max = 200)
-    @NotNull
-    @Column(name = "notes", nullable = false, length = 200)
+    @Column(name = "notes", nullable = true, length = 200)
     private String notes;
 
     @NotNull
