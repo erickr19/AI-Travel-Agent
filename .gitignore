@@ -25,4 +25,9 @@
 # AWS
 /src/main/resources/cognito.properties
 /src/main/.ebextensions
+
+# User
 /src/main/resources/openai-api.properties
+/src/test/resources/openai-api.properties
+/src/main/resources/logging.properties
+
