@@ -30,13 +30,13 @@ public class Homepage extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            // set url
-            String url = "/index.jsp";
-            // set page title
-            request.setAttribute("pageTitle", "Fly with AI!");
-            // get dispatcher
-            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
-            // forward
-            dispatcher.forward(request, response);
+                // set url
+                String url = "/index.jsp";
+                // set page title
+                request.setAttribute("pageTitle", "Fly with AI!");
+                // get dispatcher
+                RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
+                // forward
+                dispatcher.forward(request, response);
     }
 }

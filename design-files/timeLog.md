@@ -34,3 +34,12 @@ Finished up most of the front end code. There are some pages that I need to fix 
 I designed and created the database for the project using Vertabelo. I got to work on the ORM portion of the project and got the entities setup and mapped.
 I added the needed testing utils such as database, properties loader, hibernate.cfg.xml, etc.
 I got the first test for ItineraryDao to pass which was the insert test. I will continue work tomorrow!
+
+#### 4/14
+Wrapped up tests for dao classes! Once I got this done, I started working on the controller classes for the project.
+This went hand in hand with creating new jsps for the controllers that required one. I implemented the DAOs in ViewItinerary and UserProfile.
+When I got all non-API dependent controllers done is when I got started on connectivity to the OpenAI API.
+It took some researching, documentation reading, and time, but I managed to start getting responses from the API!
+I'm so proud of myself for getting this accomplished and in no time at all! It goes to show how far I've come as a web software developer.
+
+#### 4/15

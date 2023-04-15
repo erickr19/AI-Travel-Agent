@@ -21,7 +21,7 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/homepage">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/create.jsp">Create</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/create">Create</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Login</a>

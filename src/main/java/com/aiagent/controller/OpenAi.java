@@ -14,6 +14,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Properties;
 
+/**
+ * OpenAi class
+ * Responsible for handling requests to the OpenAI API.
+ * @author ereyes3
+ */
 public class OpenAi implements PropertiesLoader {
     // logger
     private final Logger logger = LogManager.getLogger(this.getClass());
@@ -24,7 +29,7 @@ public class OpenAi implements PropertiesLoader {
      * @return text of generated itinerary
      * @throws IOException if there is an error reading/writing JSON with Jackson
      */
-    private String callApi(String userPrompt) throws IOException {
+    public String callApi(String userPrompt) throws IOException {
         // instantiate mapper
         ObjectMapper mapper = new ObjectMapper();
 
