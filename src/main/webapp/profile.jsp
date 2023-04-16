@@ -11,7 +11,6 @@
 <%@include file="head.jsp"%>
 <%-- set list itineraries --%>
 <c:set var="itineraryList" value='${requestScope["itineraryList"]}' />
-<c:set var="successMessage" value='${requestScope["successMessage"]}' />
 <%-- body --%>
 <body class="bg-white">
 <%-- main container --%>

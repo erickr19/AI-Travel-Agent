@@ -53,7 +53,7 @@ public class Create extends HttpServlet {
                 // call API
                 String generatedItinerary = openAi.callApi(prompt);
                 // set page title
-                request.setAttribute("title", "View generated itinerary");
+                request.setAttribute("pageTitle", "View generated itinerary");
                 // set request attribute
                 request.setAttribute("generatedItinerary", generatedItinerary);
                 // set url
