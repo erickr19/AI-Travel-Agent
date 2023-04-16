@@ -30,6 +30,8 @@
           <h1 class="p-0">Viewing itinerary</h1>
           <%-- edit button --%>
           <a class="mx-2" href="${pageContext.request.contextPath}/edit?editId=${itinerary.getId()}"><button class="btn btn-primary">Edit</button></a>
+          <%-- delete button --%>
+          <a class="mx-2" href="${pageContext.request.contextPath}/delete?deleteId=${itinerary.getId()}"><button class="btn btn-danger">Delete</button></a>
         </div>
         <%-- form --%>
         <form>
