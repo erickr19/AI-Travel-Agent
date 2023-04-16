@@ -23,9 +23,14 @@
   <div class="container d-flex justify-content-center p-0">
     <div class="text-dark w-100">
       <%-- content container --%>
-      <div class="mt-5">
-        <%-- header --%>
-        <h1 class="p-0">Viewing itinerary</h1>
+      <div class="mt-5 mb-2">
+        <%-- header container --%>
+        <div class="d-flex align-items-center">
+          <%-- header --%>
+          <h1 class="p-0">Viewing itinerary</h1>
+          <%-- edit button --%>
+          <a class="mx-2" href="${pageContext.request.contextPath}/edit?editId=${itinerary.getId()}"><button class="btn btn-primary">Edit</button></a>
+        </div>
         <%-- form --%>
         <form>
           <%-- title --%>
@@ -53,7 +58,6 @@
             <label for="itinerary" class="form-label">Itinerary</label>
             <textarea class="form-control" id="itinerary" rows="20" aria-describedby="itineraryBody" disabled>${itinerary.getItinerary()}</textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
     </div>

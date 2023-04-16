@@ -37,25 +37,27 @@ public class ViewItinerary extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // get itinerary id to view
-        Integer itineraryId = Integer.parseInt(request.getParameter("itineraryToViewId"));
-        // call getItineraryDetails
-        Itinerary itinerary = getItineraryDetails(itineraryId);
-        // parse date
-        String formattedDate = parseDateForDisplay(itinerary.getTravelDate());
-        // log itinerary
-        logger.info("Itinerary retrieved: " + itinerary.getTitle());
-        // set request attributes
-        request.setAttribute("itinerary", itinerary);
-        request.setAttribute("formattedDate", formattedDate);
-        // set url
-        String url = "/itineraryView.jsp";
-        // set page title
-        request.setAttribute("pageTitle", itinerary.getTitle());
-        // get dispatcher
-        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
-        // forward
-        dispatcher.forward(request, response);
+            // get itinerary id to view
+            Integer itineraryId = Integer.parseInt(request.getParameter("itineraryToViewId"));
+            // call getItineraryDetails
+            Itinerary itinerary = getItineraryDetails(itineraryId);
+            // parse date
+            String formattedDate = parseDateForDisplay(itinerary.getTravelDate());
+            // log itinerary
+            logger.info("Itinerary retrieved: " + itinerary.getTitle());
+            // set request attributes
+            request.setAttribute("itinerary", itinerary);
+            request.setAttribute("formattedDate", formattedDate);
+            // log id
+            logger.info("Itinerary ID: " + itinerary.getId());
+            // set url
+            String url = "/itineraryView.jsp";
+            // set page title
+            request.setAttribute("pageTitle", itinerary.getTitle());
+            // get dispatcher
+            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
+            // forward
+            dispatcher.forward(request, response);
     }
 
     private Itinerary getItineraryDetails(Integer idToGet) {
