@@ -47,6 +47,24 @@ public class Itinerary {
     public Itinerary() {}
 
     /**
+     * Constructs an Itinerary with most properties except ID
+     * @param itinerary the itinerary text
+     * @param budget trip budget
+     * @param travelDate travel date
+     * @param notes notes
+     * @param user user to save itinerary to
+     * @param title title of itinerary
+     */
+    public Itinerary(String itinerary, Integer budget, LocalDate travelDate, String notes, User user, String title) {
+        this.itinerary = itinerary;
+        this.budget = budget;
+        this.travelDate = travelDate;
+        this.notes = notes;
+        this.user = user;
+        this.title = title;
+    }
+
+    /**
      * Gets user id
      * @return user id
      */

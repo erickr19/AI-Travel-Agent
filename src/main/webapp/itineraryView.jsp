@@ -51,7 +51,7 @@
           <%-- itinerary body --%>
           <div class="mb-3">
             <label for="itinerary" class="form-label">Itinerary</label>
-            <textarea class="form-control" id="itinerary" rows="3" aria-describedby="itineraryBody" disabled>${itinerary.getItinerary()}</textarea>
+            <textarea class="form-control" id="itinerary" rows="20" aria-describedby="itineraryBody" disabled>${itinerary.getItinerary()}</textarea>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

@@ -24,12 +24,12 @@ DROP TABLE IF EXISTS `Itineraries`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Itineraries` (
   `itinerary_id` int NOT NULL AUTO_INCREMENT,
-  `itinerary` varchar(1000) NOT NULL,
+  `itinerary` varchar(5000) NOT NULL,
   `budget` int DEFAULT NULL,
   `travel_date` date DEFAULT NULL,
-  `notes` varchar(200) DEFAULT NULL,
+  `notes` varchar(1000) DEFAULT NULL,
   `user_id` int NOT NULL,
-  `title` varchar(50) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`itinerary_id`),
   KEY `Itineraries_Users` (`user_id`),
   CONSTRAINT `Itineraries_Users` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -77,4 +77,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-14  7:56:57
+-- Dump completed on 2023-04-15 17:56:38

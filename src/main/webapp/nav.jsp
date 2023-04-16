@@ -11,7 +11,7 @@
         <%-- logo --%>
         <img src="${pageContext.request.contextPath}/images/pixel-airplane.png" class="plane-logo-sizing">
         <%-- project name --%>
-        <a class="navbar-brand fw-bold" href="index.jsp">AI Travel Agent</a>
+        <a class="navbar-brand fw-bold" href="${pageContext.request.contextPath}/homepage">AI Travel Agent</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
