@@ -1,3 +1,5 @@
+// TODO: Ensure delete only deletes logged-in user's itinerary
+
 package com.aiagent.controller;
 
 import com.aiagent.entity.Itinerary;
@@ -14,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
-        name = "edit",
+        name = "delete",
         urlPatterns = { "/delete" }
 )
 public class Delete extends HttpServlet {

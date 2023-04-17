@@ -12,7 +12,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,7 +30,10 @@ public class UserProfile extends HttpServlet {
     private GenericDao userDao;
 
     // itinerary list
-    private List<Itinerary> itineraryList;
+    private List<Itinerary> itineraryList = new ArrayList<>();
+
+    // HTTP session
+    HttpSession session;
 
     /**
      * doGet method
@@ -39,8 +44,10 @@ public class UserProfile extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // get session
+        session = request.getSession();
         // get user's itinerary and set to itinerary list
-        getItinerary();
+        getItineraries((User)session.getAttribute("user"));
         // set list request attribute
         request.setAttribute("itineraryList", itineraryList);
         // set url
@@ -56,16 +63,30 @@ public class UserProfile extends HttpServlet {
     /**
      * Gets user's itineraries and sets itineraryList.
      */
-    private void getItinerary() {
-        // instantiate userDao
-        userDao = new GenericDao(User.class);
-        // get user
-        User user = (User)userDao.getById(1);
-        // log user
-        logger.info("User retrieved: " + user.getUsername());
+    private void getItineraries(User user) {
+        // refresh user
+        refreshUser(user);
         // get user's itinerary
         itineraryList = user.getItineraries();
         // log itineraries
         logger.info("Itineraries retrieved: " + itineraryList.size());
+        for (Itinerary itinerary : itineraryList) {
+            logger.info("itinerary: " + itinerary.getItinerary());
+        }
+    }
+
+    private void refreshUser(User user) {
+        // instantiate userDao
+        userDao = new GenericDao(User.class);
+        // get user
+        User userToRefresh = (User)session.getAttribute("user");
+        // get id
+        Integer idToRefresh = userToRefresh.getId();
+        // get user from db
+        User refreshedUser = (User)userDao.getById(idToRefresh);
+        // set refreshed user to session
+        session.setAttribute("user", refreshedUser);
+        // log refresh
+        logger.info("User refreshed: " + refreshedUser.getUsername());
     }
 }

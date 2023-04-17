@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -47,6 +48,8 @@ public class Save extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+            // get session
+            HttpSession session = request.getSession();
             // get parameters
             String itinerary = request.getParameter("itinerary");
             String title = request.getParameter("title");
@@ -54,7 +57,7 @@ public class Save extends HttpServlet {
             String date = request.getParameter("date");
             String notes = request.getParameter("notes");
             // save to db
-            save(itinerary, title, budget, date, notes);
+            save(itinerary, title, budget, date, notes, (User)session.getAttribute("user"));
             // set success message
             request.setAttribute("successMessage", "Itinerary added successfully!");
             // set url
@@ -65,18 +68,13 @@ public class Save extends HttpServlet {
             dispatcher.forward(request, response);
     }
 
-    private void save(String itinerary, String title, String budget, String date, String notes) {
+    private void save(String itinerary, String title, String budget, String date, String notes, User user) {
         // instantiate itineraryDao
         GenericDao itineraryDao = new GenericDao(Itinerary.class);
         // convert budget to integer
         Integer parsedBudget = Integer.parseInt(budget);
         // parse date for db
         LocalDate parsedDate = parseDateForStorage(date);
-        // get user from session
-        // TODO: Make this so user actually comes from session
-        GenericDao userDao = new GenericDao(User.class);
-        User user = (User)userDao.getById(1);
-
         // create new itinerary
         Itinerary newItinerary = new Itinerary(itinerary, parsedBudget, parsedDate, notes, user, title);
         // save to db

@@ -1,7 +1,8 @@
+// TODO: Ensure edit only edits logged in user's itinerary
+
 package com.aiagent.controller;
 
 import com.aiagent.entity.Itinerary;
-import com.aiagent.entity.User;
 import com.aiagent.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -33,14 +34,31 @@ public class Create extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                // set url
-                String url = "/create.jsp";
-                // set page title
-                request.setAttribute("pageTitle", "Create a new itinerary");
-                // get dispatcher
-                RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
-                // forward
-                dispatcher.forward(request, response);
+                // get session
+                HttpSession session = request.getSession();
+                // if user logged in forward to create page
+                if (session.getAttribute("user") != null) {
+                    // set url
+                    String url = "/create.jsp";
+                    // set page title
+                    request.setAttribute("pageTitle", "Create a new itinerary");
+                    // get dispatcher
+                    RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
+                    // forward
+                    dispatcher.forward(request, response);
+                // else redirect to status page with error
+                } else {
+                    // set url
+                    String url = "/status.jsp";
+                    // set error message
+                    request.setAttribute("errorMessage", "401: Unauthorized. User not logged in.");
+                    // set page title
+                    request.setAttribute("pageTitle", "401 Not Authorized");
+                    // get dispatcher
+                    RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
+                    // forward
+                    dispatcher.forward(request, response);
+                }
     }
 
 

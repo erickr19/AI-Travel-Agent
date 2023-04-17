@@ -20,12 +20,26 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/homepage">Home</a>
                 </li>
+                <c:if test="${not empty user}">
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/create">Create</a>
                 </li>
+                </c:if>
+                <c:if test="${not empty user}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/profile">Profile</a>
+                    </li>
+                </c:if>
+                <c:if test="${empty user}">
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/logIn">Login</a>
                 </li>
+                </c:if>
+                <c:if test="${not empty user}">
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
+                </li>
+                </c:if>
             </ul>
         </div>
     </div>

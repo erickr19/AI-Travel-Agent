@@ -69,7 +69,7 @@ public class VerifyUser extends HttpServlet {
             // get found user
             User foundUser = (User)foundUserByUsername.get(0);
             // log user
-            logger.info("Found user: " + foundUser);
+            logger.info("Found user: " + foundUser.getUsername());
             // set existing user to session
             session.setAttribute("user", foundUser);
         }
