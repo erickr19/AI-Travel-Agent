@@ -24,7 +24,7 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/create">Create</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/logIn">Login</a>
                 </li>
             </ul>
         </div>

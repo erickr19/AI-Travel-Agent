@@ -43,3 +43,8 @@ It took some researching, documentation reading, and time, but I managed to star
 I'm so proud of myself for getting this accomplished and in no time at all! It goes to show how far I've come as a web software developer.
 
 #### 4/15
+This day I've simplified the I/O of the API access. I mean that I added POJOs can be fed into the request and used to read the response.
+I've also integrated the AI functionality into the actual web application instead of it being a test.
+Today I've also added all CRUD operations. Creating the itinerary and saving it to the database. Reading the database for all the itineraries.
+Updating/editing itineraries and, finally, deleting itineraries. I would say that the project is about 70% complete. I just need to add AWS Cognito for User
+creation and authentication. Then refactoring the controllers to account for this change in user handling. The last step would be to add the project to the cloud.
