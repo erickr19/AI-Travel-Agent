@@ -9,7 +9,7 @@
 <%-- head.jsp inclusion --%>
 <%@include file="head.jsp"%>
 <%-- set user --%>
-<c:set var="userName" value='${sessionScope["userName"]}' />
+<c:set var="user" value='${sessionScope["user"]}' />
 <%-- body --%>
 <body class="bg-white">
 <%-- main container --%>
@@ -22,7 +22,7 @@
             <%-- content container --%>
             <div class="mt-5">
                 <%-- header --%>
-                <h1 class="mb-4">Make trip planning <span class="custom-text-sky-blue">fly</span> with AI<c:if test="${not empty userName}">, ${userName}!</c:if></h1>
+                <h1 class="mb-4">Make trip planning <span class="custom-text-sky-blue">fly</span> with AI<c:if test="${not empty user}">, ${user.getUsername()}!</c:if></h1>
                 <%-- grid container --%>
                 <%-- TODO: Fix display on mobile --%>
                 <div class="container">

@@ -38,9 +38,7 @@ import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.Properties;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -63,11 +61,16 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     String POOL_ID;
     Keys jwks;
 
-    /**
-     * Logger
-     */
+    // logger
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    // user details map
+    Map<String, String> userDetails;
+
+    /**
+     *
+     * @throws ServletException
+     */
     @Override
     public void init() throws ServletException {
         super.init();
@@ -108,10 +111,9 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
                 TokenResponse tokenResponse = getToken(authRequest);
-                userName = validate(tokenResponse);
-                session.setAttribute("userName", userName);
-                // log session
-                logger.debug("Username in session: " + userName);
+                validate(tokenResponse);
+                session.setAttribute("username", userDetails.get("username"));
+                session.setAttribute("email", userDetails.get("email"));
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 request.setAttribute("errorMessage", "Error getting or validating the token.");
@@ -123,7 +125,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         }
         // if successful, forward to index
         // set url
-        dispatcher = request.getServletContext().getRequestDispatcher("/index.jsp");
+        dispatcher = request.getServletContext().getRequestDispatcher("/verify");
         // forward
         dispatcher.forward(request, response);
 
@@ -161,7 +163,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
      * @return
      * @throws IOException
      */
-    private String validate(TokenResponse tokenResponse) throws IOException {
+    private void validate(TokenResponse tokenResponse) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         CognitoTokenHeader tokenHeader = mapper.readValue(CognitoJWTParser.getHeader(tokenResponse.getIdToken()).toString(), CognitoTokenHeader.class);
 
@@ -198,16 +200,18 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         // Verify the token
         DecodedJWT jwt = verifier.verify(tokenResponse.getIdToken());
-        String userName = jwt.getClaim("cognito:username").asString();
+        // get username
+        String username = jwt.getClaim("cognito:username").asString();
+        // get email
         String email = jwt.getClaim("email").asString();
-        logger.debug("Username retrieved: " + userName);
-        logger.debug("Email retrieved: " + email);
-        logger.debug("here are all the available claims: " + jwt.getClaims());
+        // log available claims
+        // logger.debug("here are all the available claims: " + jwt.getClaims());
+        // instantiate map
+        userDetails = new HashMap<>();
+        // put username and email in map
+        userDetails.put("username", username);
+        userDetails.put("email", email);
 
-        // TODO decide what you want to do with the info!
-        // for now, I'm just returning username for display back to the browser
-
-        return userName;
     }
 
     /** Create the auth url and use it to build the request.

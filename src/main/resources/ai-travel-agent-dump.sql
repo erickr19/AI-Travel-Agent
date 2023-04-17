@@ -53,7 +53,6 @@ DROP TABLE IF EXISTS `Users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Users` (
   `user_id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(20) NOT NULL,
   `username` varchar(20) NOT NULL,
   `email` varchar(60) NOT NULL,
   PRIMARY KEY (`user_id`)
@@ -65,7 +64,7 @@ CREATE TABLE `Users` (
 --
 
 LOCK TABLES `Users` WRITE;
-INSERT INTO `Users` (`user_id`, `first_name`, `username`, `email`) VALUES (1,'Erick','ereyes3','ereyes4@madisoncollege.edu'),(2,'Lily','lileee','lilyE@123.com');
+INSERT INTO `Users` (`user_id`, `username`, `email`) VALUES (1,'ereyes3','ereyes4@madisoncollege.edu'),(2,'lileee','lilyE@123.com');
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -77,4 +76,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-15 17:56:38
+-- Dump completed on 2023-04-16 21:59:47

@@ -31,7 +31,6 @@ class UserDaoTest {
         // create new user
         User newUser = new User();
         // add data to user
-        newUser.setFirstName("John");
         newUser.setUsername("jsmithy14");
         newUser.setEmail("jsmith@example.com");
         // not possible to add multiple itineraries to user
@@ -48,7 +47,7 @@ class UserDaoTest {
         // get user by id
         User retrievedUser = (User)userDao.getById(1);
         // test
-        assertEquals("Erick", retrievedUser.getFirstName());
+        assertEquals("ereyes3", retrievedUser.getUsername());
     }
 
     @Test

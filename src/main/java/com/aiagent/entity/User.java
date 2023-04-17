@@ -16,11 +16,6 @@ public class User {
 
     @Size(max = 20)
     @NotNull
-    @Column(name = "first_name", nullable = false, length = 20)
-    private String firstName;
-
-    @Size(max = 20)
-    @NotNull
     @Column(name = "username", nullable = false, length = 20)
     private String username;
 
@@ -51,22 +46,6 @@ public class User {
      */
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    /**
-     * Gets first name
-     * @return user's first name
-     */
-    public String getFirstName() {
-        return firstName;
-    }
-
-    /**
-     * Sets first name
-     * @param firstName user's first name
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     /**
