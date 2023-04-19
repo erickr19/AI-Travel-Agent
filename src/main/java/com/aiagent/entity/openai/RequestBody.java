@@ -21,7 +21,7 @@ public class RequestBody{
 	public RequestBody(String prompt) {
 		this.topP = 1;
 		this.frequencyPenalty = 0;
-		this.maxTokens = 256;
+		this.maxTokens = 512;
 		this.presencePenalty = 0;
 		this.temperature = 0.7;
 		this.model = "text-davinci-003";

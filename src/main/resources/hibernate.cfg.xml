@@ -4,9 +4,9 @@
         "https://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/Test-AI-Travel-Agent</property>
+<!--        <property name="connection.url">jdbc:mysql://localhost:3306/Test-AI-Travel-Agent</property>-->
 <!--        <property name="connection.url">jdbc:mysql://localhost:3306/AI-Travel-Agent</property>-->
-<!--        <property name="connection.url">awseb-e-2fcvryjkmq-stack-awsebrdsdatabase-2uspgurshmt9.cwraxwhdvmzh.us-east-2.rds.amazonaws.com:3306/AI-Travel-Agent</property>-->
+        <property name="connection.url">jdbc:mysql://awseb-e-2fcvryjkmq-stack-awsebrdsdatabase-2uspgurshmt9.cwraxwhdvmzh.us-east-2.rds.amazonaws.com:3306/AI-Travel-Agent</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
         <property name="connection.username">root</property>
