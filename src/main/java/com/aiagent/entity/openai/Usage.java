@@ -26,10 +26,10 @@ public class Usage{
 
 	/**
 	 * Sets tokens used to complete response
-	 * @param completionTokens amount of tokens used to respond
+	 * @param completionTokensUsed amount of tokens used to respond
 	 */
-	public void setCompletionTokens(int completionTokens) {
-		this.completionTokens = completionTokens;
+	public void setCompletionTokens(int completionTokensUsed) {
+		this.completionTokens = completionTokensUsed;
 	}
 
 	/**
@@ -42,10 +42,10 @@ public class Usage{
 
 	/**
 	 * Sets tokens used for the prompt
-	 * @param promptTokens tokens of prompt
+	 * @param promptTokensUsed tokens of prompt
 	 */
-	public void setPromptTokens(int promptTokens) {
-		this.promptTokens = promptTokens;
+	public void setPromptTokens(int promptTokensUsed) {
+		this.promptTokens = promptTokensUsed;
 	}
 
 	/**
@@ -58,10 +58,10 @@ public class Usage{
 
 	/**
 	 * Sets total tokens used (prompt and completion tokens)
-	 * @param totalTokens total tokens used
+	 * @param totalTokensUsed total tokens used
 	 */
-	public void setTotalTokens(int totalTokens) {
-		this.totalTokens = totalTokens;
+	public void setTotalTokens(int totalTokensUsed) {
+		this.totalTokens = totalTokensUsed;
 	}
 
 	/**

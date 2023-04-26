@@ -1,8 +1,5 @@
 package com.aiagent.controller;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,9 +18,7 @@ import java.io.IOException;
         name = "create",
         urlPatterns = { "/create" }
 )
-public class Create extends HttpServlet {
-    // logger
-    private final Logger logger = LogManager.getLogger(this.getClass());
+public final class Create extends HttpServlet {
 
     /**
      * doGet method.

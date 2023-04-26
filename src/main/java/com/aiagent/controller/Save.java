@@ -3,8 +3,6 @@ package com.aiagent.controller;
 import com.aiagent.entity.Itinerary;
 import com.aiagent.entity.User;
 import com.aiagent.persistence.GenericDao;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,9 +19,7 @@ import java.time.format.DateTimeFormatter;
         name = "save",
         urlPatterns = { "/save" }
 )
-public class Save extends HttpServlet {
-    // logger
-    private final Logger logger = LogManager.getLogger(this.getClass());
+public final class Save extends HttpServlet {
 
     /**
      * doGet method.

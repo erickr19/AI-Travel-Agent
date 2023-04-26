@@ -2,13 +2,13 @@ package com.aiagent.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class KeysItem{
+public final class KeysItem{
 
 	@JsonProperty("kty")
 	private String kty;
 
 	@JsonProperty("e")
-	private String E;
+	private String exponent;
 
 	@JsonProperty("use")
 	private String use;
@@ -20,14 +20,14 @@ public class KeysItem{
 	private String alg;
 
 	@JsonProperty("n")
-	private String N;
+	private String modulus;
 
 	public String getKty(){
 		return kty;
 	}
 
-	public String getE(){
-		return E;
+	public String getExponent(){
+		return exponent;
 	}
 
 	public String getUse(){
@@ -42,7 +42,7 @@ public class KeysItem{
 		return alg;
 	}
 
-	public String getN(){
-		return N;
+	public String getModulus(){
+		return modulus;
 	}
 }

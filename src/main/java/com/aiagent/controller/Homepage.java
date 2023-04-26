@@ -1,8 +1,5 @@
 package com.aiagent.controller;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -18,8 +15,6 @@ import javax.servlet.annotation.*;
         urlPatterns = { "/homepage", "/" }
 )
 public class Homepage extends HttpServlet {
-    // logger
-    private final Logger logger = LogManager.getLogger(this.getClass());
 
     /**
      * doGet method

@@ -8,12 +8,9 @@ import org.hibernate.HibernateException;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -32,10 +29,10 @@ public class GenericDao<T> {
 
     /**
      * Creates a new DAO for the given type
-     * @param type the entity type/name
+     * @param entityType the entity type/name
      */
-    public GenericDao(Class<T> type) {
-        this.type = type;
+    public GenericDao(Class<T> entityType) {
+        this.type = entityType;
     }
 
     // CRUD operations
@@ -57,8 +54,10 @@ public class GenericDao<T> {
             id = (int)session.save(entity);
             tx.commit();
         } catch (HibernateException hibernateE) {
-            if (tx != null) tx.rollback();
-            logger.error("Hibernate Exception: failed to insert", hibernateE);
+            if (tx != null) {
+                tx.rollback();
+                logger.error("Hibernate Exception: failed to insert", hibernateE);
+            }
         }
         // return id
         return id;
@@ -80,8 +79,10 @@ public class GenericDao<T> {
             entity = (T) session.get(type, id);
             tx.commit();
         } catch (HibernateException hibernateE) {
-            if (tx != null) tx.rollback();
-            logger.error("Hibernate Exception: failed to get by id", hibernateE);
+            if (tx != null) {
+                tx.rollback();
+                logger.error("Hibernate Exception: failed to get by id", hibernateE);
+            }
         }
         // return entity
         return entity;
@@ -101,8 +102,10 @@ public class GenericDao<T> {
             session.update(entity);
             tx.commit();
         } catch (HibernateException hibernateE) {
-            if (tx != null) tx.rollback();
-            logger.error("Hibernate Exception: failed to update", hibernateE);
+            if (tx != null) {
+                tx.rollback();
+                logger.error("Hibernate Exception: failed to update", hibernateE);
+            }
         }
     }
 
@@ -121,8 +124,10 @@ public class GenericDao<T> {
             session.delete(entity);
             tx.commit();
         } catch (HibernateException hibernateE) {
-            if (tx != null) tx.rollback();
-            logger.error("Hibernate Exception: failed to get by id", hibernateE);
+            if (tx != null)  {
+                tx.rollback();
+                logger.error("Hibernate Exception: failed to get by id", hibernateE);
+            }
         }
     }
 

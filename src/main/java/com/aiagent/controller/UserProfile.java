@@ -26,14 +26,11 @@ public class UserProfile extends HttpServlet {
     // logger
     private final Logger logger = LogManager.getLogger(this.getClass());
 
-    // user dao
-    private GenericDao userDao;
-
     // itinerary list
     private List<Itinerary> itineraryList = new ArrayList<>();
 
     // HTTP session
-    HttpSession session;
+    private HttpSession session;
 
     /**
      * doGet method
@@ -77,9 +74,9 @@ public class UserProfile extends HttpServlet {
 
     private void refreshUser(User user) {
         // instantiate userDao
-        userDao = new GenericDao(User.class);
+        GenericDao userDao = new GenericDao(User.class);
         // get user
-        User userToRefresh = (User)session.getAttribute("user");
+        User userToRefresh = user;
         // get id
         Integer idToRefresh = userToRefresh.getId();
         // get user from db

@@ -21,7 +21,7 @@ import java.time.format.DateTimeFormatter;
         name = "edit",
         urlPatterns = { "/edit" }
 )
-public class Edit extends HttpServlet {
+public final class Edit extends HttpServlet {
     // logger
     private final Logger logger = LogManager.getLogger(this.getClass());
 

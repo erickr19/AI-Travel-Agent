@@ -19,12 +19,11 @@ import java.util.Properties;
 /**
  * Begins the authentication process using AWS Cognito.
  */
-public class LogIn extends HttpServlet implements PropertiesLoader {
-    Properties properties;
+public final class LogIn extends HttpServlet implements PropertiesLoader {
     private final Logger logger = LogManager.getLogger(this.getClass());
-    public static String CLIENT_ID;
-    public static String LOGIN_URL;
-    public static String REDIRECT_URL;
+    private static String clientId;
+    private static String loginUrl;
+    private static String redirectUrl;
 
     @Override
     public void init() throws ServletException {
@@ -40,10 +39,10 @@ public class LogIn extends HttpServlet implements PropertiesLoader {
     // 4 to do this work a single time and put the properties in the application scope
     private void loadProperties() {
         try {
-            properties = loadProperties("/cognito.properties");
-            CLIENT_ID = properties.getProperty("client.id");
-            LOGIN_URL = properties.getProperty("loginURL");
-            REDIRECT_URL = properties.getProperty("redirectURL");
+            Properties properties = loadProperties("/cognito.properties");
+            clientId = properties.getProperty("client.id");
+            loginUrl = properties.getProperty("loginURL");
+            redirectUrl = properties.getProperty("redirectURL");
         } catch (Exception e) {
             logger.error("Error loading properties" + e.getMessage(), e);
         }
@@ -59,7 +58,7 @@ public class LogIn extends HttpServlet implements PropertiesLoader {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // TODO if properties weren't loaded properly, route to an error page
-        String url = LOGIN_URL + "?response_type=code&client_id=" + CLIENT_ID + "&redirect_uri=" + REDIRECT_URL;
+        String url = loginUrl + "?response_type=code&client_id=" + clientId + "&redirect_uri=" + redirectUrl;
         resp.sendRedirect(url);
     }
 }

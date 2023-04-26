@@ -11,14 +11,19 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "Itineraries")
 public class Itinerary {
+    // default values
+    static final int MAX_VALUE_1K = 1000;
+    static final int MAX_VALUE_200 = 200;
+    static final int MAX_VALUE_50 = 50;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "itinerary_id", nullable = false)
     private Integer id;
 
-    @Size(max = 1000)
+    @Size(max = MAX_VALUE_1K)
     @NotNull
-    @Column(name = "itinerary", nullable = false, length = 1000)
+    @Column(name = "itinerary", nullable = false, length = MAX_VALUE_1K)
     private String itinerary;
 
     @Column(name = "budget", nullable = true)
@@ -27,8 +32,8 @@ public class Itinerary {
     @Column(name = "travel_date", nullable = true)
     private LocalDate travelDate;
 
-    @Size(max = 200)
-    @Column(name = "notes", nullable = true, length = 200)
+    @Size(max = MAX_VALUE_200)
+    @Column(name = "notes", nullable = true, length = MAX_VALUE_200)
     private String notes;
 
     @NotNull
@@ -37,8 +42,8 @@ public class Itinerary {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Size(max = 50)
-    @Column(name = "title", length = 50)
+    @Size(max = MAX_VALUE_50)
+    @Column(name = "title", length = MAX_VALUE_50)
     private String title;
 
     /**
@@ -48,20 +53,20 @@ public class Itinerary {
 
     /**
      * Constructs an Itinerary with most properties except ID
-     * @param itinerary the itinerary text
-     * @param budget trip budget
-     * @param travelDate travel date
-     * @param notes notes
-     * @param user user to save itinerary to
-     * @param title title of itinerary
+     * @param itineraryToSet the itinerary text
+     * @param budgetToSet trip budget
+     * @param travelDateToSet travel date
+     * @param notesToSet notes
+     * @param userToSet user to save itinerary to
+     * @param titleToSet title of itinerary
      */
-    public Itinerary(String itinerary, Integer budget, LocalDate travelDate, String notes, User user, String title) {
-        this.itinerary = itinerary;
-        this.budget = budget;
-        this.travelDate = travelDate;
-        this.notes = notes;
-        this.user = user;
-        this.title = title;
+    public Itinerary(String itineraryToSet, Integer budgetToSet, LocalDate travelDateToSet, String notesToSet, User userToSet, String titleToSet) {
+        this.itinerary = itineraryToSet;
+        this.budget = budgetToSet;
+        this.travelDate = travelDateToSet;
+        this.notes = notesToSet;
+        this.user = userToSet;
+        this.title = titleToSet;
     }
 
     /**
@@ -74,10 +79,10 @@ public class Itinerary {
 
     /**
      * Sets id
-     * @param id user id to set
+     * @param idToSet user id to set
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer idToSet) {
+        this.id = idToSet;
     }
 
     /**
@@ -90,9 +95,9 @@ public class Itinerary {
 
     /**
      * Sets itinerary
-     * @param itinerary the itinerary to set
+     * @param itineraryToSet the itinerary to set
      */
-    public void setItinerary(String itinerary) {
+    public void setItinerary(String itineraryToSet) {
         this.itinerary = itinerary;
     }
 
@@ -106,10 +111,10 @@ public class Itinerary {
 
     /**
      * Sets budget
-     * @param budget the budget to set
+     * @param budgetToSet the budget to set
      */
-    public void setBudget(Integer budget) {
-        this.budget = budget;
+    public void setBudget(Integer budgetToSet) {
+        this.budget = budgetToSet;
     }
 
     /**
@@ -122,10 +127,10 @@ public class Itinerary {
 
     /**
      * Sets travel date
-     * @param travelDate the travel date to set
+     * @param travelDateToSet the travel date to set
      */
-    public void setTravelDate(LocalDate travelDate) {
-        this.travelDate = travelDate;
+    public void setTravelDate(LocalDate travelDateToSet) {
+        this.travelDate = travelDateToSet;
     }
 
     /**
@@ -138,10 +143,10 @@ public class Itinerary {
 
     /**
      * Sets notes
-     * @param notes the itinerary notes to set
+     * @param notesToSet the itinerary notes to set
      */
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setNotes(String notesToSet) {
+        this.notes = notesToSet;
     }
 
     /**
@@ -154,10 +159,10 @@ public class Itinerary {
 
     /**
      * Sets user
-     * @param user the itinerary's user
+     * @param userToSet the itinerary's user
      */
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(User userToSet) {
+        this.user = userToSet;
     }
 
     /**
@@ -170,9 +175,9 @@ public class Itinerary {
 
     /**
      * Sets title
-     * @param title title
+     * @param titleToSet title
      */
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String titleToSet) {
+        this.title = titleToSet;
     }
 }

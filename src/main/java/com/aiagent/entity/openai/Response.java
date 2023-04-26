@@ -39,10 +39,10 @@ public class Response{
 
 	/**
 	 * Sets generation id
-	 * @param created id of created response
+	 * @param createdIdToSet id of created response
 	 */
-	public void setCreated(int created) {
-		this.created = created;
+	public void setCreated(int createdIdToSet) {
+		this.created = createdIdToSet;
 	}
 
 	/**
@@ -55,10 +55,10 @@ public class Response{
 
 	/**
 	 * Sets token usage
-	 * @param usage tokens used
+	 * @param usageToSet tokens used
 	 */
-	public void setUsage(Usage usage) {
-		this.usage = usage;
+	public void setUsage(Usage usageToSet) {
+		this.usage = usageToSet;
 	}
 
 	/**
@@ -71,10 +71,10 @@ public class Response{
 
 	/**
 	 * Sets ai model
-	 * @param model the ai model used
+	 * @param modelUsed the ai model used
 	 */
-	public void setModel(String model) {
-		this.model = model;
+	public void setModel(String modelUsed) {
+		this.model = modelUsed;
 	}
 
 	/**
@@ -87,10 +87,10 @@ public class Response{
 
 	/**
 	 * Sets response id
-	 * @param id
+	 * @param idToSet
 	 */
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String idToSet) {
+		this.id = idToSet;
 	}
 
 	/**
@@ -103,10 +103,10 @@ public class Response{
 
 	/**
 	 * Sets choices (or body) of response
-	 * @param choices response body
+	 * @param choicesToSet response body
 	 */
-	public void setChoices(List<ChoicesItem> choices) {
-		this.choices = choices;
+	public void setChoices(List<ChoicesItem> choicesToSet) {
+		this.choices = choicesToSet;
 	}
 
 	/**
@@ -119,10 +119,10 @@ public class Response{
 
 	/**
 	 * Sets object (mode) of AI response
-	 * @param object mode of AI response
+	 * @param objectToSet mode of AI response
 	 */
-	public void setObject(String object) {
-		this.object = object;
+	public void setObject(String objectToSet) {
+		this.object = objectToSet;
 	}
 
 	/**

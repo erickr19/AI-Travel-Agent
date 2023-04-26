@@ -9,19 +9,23 @@ import java.util.List;
 @Entity
 @Table(name = "Users")
 public class User {
+    // default values
+    static final int MAX_VALUE_20 = 20;
+    static final int MAX_VALUE_60 = 60;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false)
     private Integer id;
 
-    @Size(max = 20)
+    @Size(max = MAX_VALUE_20)
     @NotNull
-    @Column(name = "username", nullable = false, length = 20)
+    @Column(name = "username", nullable = false, length = MAX_VALUE_20)
     private String username;
 
-    @Size(max = 60)
+    @Size(max = MAX_VALUE_60)
     @NotNull
-    @Column(name = "email", nullable = false, length = 60)
+    @Column(name = "email", nullable = false, length = MAX_VALUE_60)
     private String email;
 
     @OneToMany(mappedBy = "user")
@@ -42,10 +46,10 @@ public class User {
 
     /**
      * Sets user id
-     * @param id user id
+     * @param idToSet user id
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer idToSet) {
+        this.id = idToSet;
     }
 
     /**
@@ -58,10 +62,10 @@ public class User {
 
     /**
      * Set username
-     * @param username username
+     * @param usernameToSet username
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String usernameToSet) {
+        this.username = usernameToSet;
     }
 
     /**
@@ -74,10 +78,10 @@ public class User {
 
     /**
      * Sets email
-     * @param email user's email
+     * @param emailToSet user's email
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String emailToSet) {
+        this.email = emailToSet;
     }
 
     /**
@@ -90,10 +94,10 @@ public class User {
 
     /**
      * Sets itineraries
-     * @param itineraries set of itineraries
+     * @param itinerariesToSet set of itineraries
      */
-    public void setItineraries(List<Itinerary> itineraries) {
-        this.itineraries = itineraries;
+    public void setItineraries(List<Itinerary> itinerariesToSet) {
+        this.itineraries = itinerariesToSet;
     }
 
 }

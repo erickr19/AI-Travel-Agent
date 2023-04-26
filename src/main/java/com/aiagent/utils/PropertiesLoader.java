@@ -1,5 +1,8 @@
 package com.aiagent.utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -9,6 +12,10 @@ import java.util.Properties;
  * @author Eric Knapp
  */
 public interface PropertiesLoader {
+
+    // logger
+    Logger LOGGER = LogManager.getLogger(PropertiesLoader.class);
+
     /**
      * This default method will load a properties file into a Properties instance
      * and return it.
@@ -21,9 +28,9 @@ public interface PropertiesLoader {
         try {
             properties.load(this.getClass().getResourceAsStream(propertiesFilePath));
         } catch (IOException iOException) {
-            iOException.printStackTrace();
+            LOGGER.error("Failed to load properties file: " + iOException);
         } catch (Exception exception) {
-            exception.printStackTrace();
+            LOGGER.error("Failed to load properties file | General exception: " + exception);
         }
         return properties;
     }

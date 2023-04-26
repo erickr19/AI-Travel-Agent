@@ -19,13 +19,12 @@ import java.util.List;
         name = "verifyUser",
         urlPatterns = { "/verify" }
 )
-public class VerifyUser extends HttpServlet {
+public final class VerifyUser extends HttpServlet {
     // logger
     private final Logger logger = LogManager.getLogger(this.getClass());
     // declare session
-    HttpSession session;
-    // userDao
-    private GenericDao userDao;
+    private HttpSession session;
+
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             // instantiate session
@@ -33,7 +32,7 @@ public class VerifyUser extends HttpServlet {
             // get username
             String username = (String)session.getAttribute("username");
             // get email
-            String email = (String)session.getAttribute("email");
+            String email = (String)session.getAttribute("userEmail");
             // check database
             checkDatabase(username, email);
             // set url
@@ -46,7 +45,7 @@ public class VerifyUser extends HttpServlet {
 
     public void checkDatabase(String username, String email) {
         // instantiate userDao
-        userDao = new GenericDao(User.class);
+        GenericDao userDao = new GenericDao(User.class);
         // check if username exists in db (always unique)
         List foundUserByUsername = userDao.findByPropertyEqual("username", username);
         // if username doesn't exist in db, create user into db

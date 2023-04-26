@@ -20,7 +20,7 @@ public class CognitoJWTParser {
     private static final int PAYLOAD = 1;
     private static final int SIGNATURE = 2;
     private static final int JWT_PARTS = 3;
-
+    private static final String REG_EX = "\\.";
     /**
      * Returns header for a JWT as a JSON object.
      *
@@ -31,7 +31,7 @@ public class CognitoJWTParser {
         try {
             validateJWT(jwt);
             Decoder dec= Base64.getDecoder();
-            final byte[] sectionDecoded = dec.decode(jwt.split("\\.")[HEADER]);
+            final byte[] sectionDecoded = dec.decode(jwt.split(REG_EX)[HEADER]);
             final String jwtSection = new String(sectionDecoded, "UTF-8");
             return new JSONObject(jwtSection);
         } catch (final UnsupportedEncodingException e) {
@@ -51,7 +51,7 @@ public class CognitoJWTParser {
         try {
             validateJWT(jwt);
             Decoder dec= Base64.getDecoder();
-            final String payload = jwt.split("\\.")[PAYLOAD];
+            final String payload = jwt.split(REG_EX)[PAYLOAD];
             final byte[] sectionDecoded = dec.decode(payload);
             final String jwtSection = new String(sectionDecoded, "UTF-8");
             return new JSONObject(jwtSection);
@@ -72,7 +72,7 @@ public class CognitoJWTParser {
         try {
             validateJWT(jwt);
             Decoder dec= Base64.getDecoder();
-            final byte[] sectionDecoded = dec.decode(jwt.split("\\.")[SIGNATURE]);
+            final byte[] sectionDecoded = dec.decode(jwt.split(REG_EX)[SIGNATURE]);
             return new String(sectionDecoded, "UTF-8");
         } catch (final Exception e) {
             throw new InvalidParameterException("error in parsing JSON");
@@ -108,7 +108,7 @@ public class CognitoJWTParser {
      */
     public static void validateJWT(String jwt) {
         // Check if the the JWT has the three parts
-        final String[] jwtParts = jwt.split("\\.");
+        final String[] jwtParts = jwt.split(REG_EX);
         if (jwtParts.length != JWT_PARTS) {
             throw new InvalidParameterException("not a JSON Web Token");
         }

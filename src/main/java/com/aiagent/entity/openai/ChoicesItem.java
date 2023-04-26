@@ -28,10 +28,10 @@ public class ChoicesItem{
 
 	/**
 	 * Sets finish reason of response generation
-	 * @param finishReason the reason for stopping response
+	 * @param finishReasonToSet the reason for stopping response
 	 */
-	public void setFinishReason(String finishReason) {
-		this.finishReason = finishReason;
+	public void setFinishReason(String finishReasonToSet) {
+		this.finishReason = finishReasonToSet;
 	}
 
 	/**
@@ -45,10 +45,10 @@ public class ChoicesItem{
 	/**
 	 * Sets index of response
 	 * note: I'm unsure of what this actually represents as the API docs don't describe it
-	 * @param index response index
+	 * @param indexToSet response index
 	 */
-	public void setIndex(int index) {
-		this.index = index;
+	public void setIndex(int indexToSet) {
+		this.index = indexToSet;
 	}
 
 	/**
@@ -61,10 +61,10 @@ public class ChoicesItem{
 
 	/**
 	 * Sets text of response
-	 * @param text response text
+	 * @param texToSet response text
 	 */
-	public void setText(String text) {
-		this.text = text;
+	public void setText(String textToSet) {
+		this.text = textToSet;
 	}
 
 	/**
@@ -77,10 +77,10 @@ public class ChoicesItem{
 
 	/**
 	 * Sets the log of probabilities the AI generated (if requested)
-	 * @param logprobs
+	 * @param logprobsToSet log of probabilities
 	 */
-	public void setLogprobs(Object logprobs) {
-		this.logprobs = logprobs;
+	public void setLogprobs(Object logprobsToSet) {
+		this.logprobs = logprobsToSet;
 	}
 
 	/**

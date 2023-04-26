@@ -2,7 +2,7 @@ package com.aiagent.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class CognitoTokenHeader{
+public final class CognitoTokenHeader{
 
 	@JsonProperty("kid")
 	private String kid;

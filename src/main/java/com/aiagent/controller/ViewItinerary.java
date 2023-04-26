@@ -25,8 +25,6 @@ public class ViewItinerary extends HttpServlet {
     // logger
     private final Logger logger = LogManager.getLogger(this.getClass());
 
-    // itineraryDao
-    private GenericDao itineraryDao;
 
     /**
      * doGet method
@@ -62,7 +60,7 @@ public class ViewItinerary extends HttpServlet {
 
     private Itinerary getItineraryDetails(Integer idToGet) {
         // instantiate itineraryDao
-        itineraryDao = new GenericDao(Itinerary.class);
+        GenericDao itineraryDao = new GenericDao(Itinerary.class);
         // get requested itinerary
         return (Itinerary) itineraryDao.getById(idToGet);
     }

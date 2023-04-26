@@ -7,27 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Used as a POJO for HttpRequest
  */
 public class RequestBody{
-	// constructors
-
-	/**
-	 * Instantiates an empty RequestBody
-	 */
-	public RequestBody() {}
-
-	/**
-	 * Constructs a default RequestBody for the project
-	 * @param prompt the prompt for the AI to use
-	 */
-	public RequestBody(String prompt) {
-		this.topP = 1;
-		this.frequencyPenalty = 0;
-		this.maxTokens = 512;
-		this.presencePenalty = 0;
-		this.temperature = 0.7;
-		this.model = "text-davinci-003";
-		this.prompt = prompt;
-	}
-
 
 	@JsonProperty("top_p")
 	private int topP;
@@ -50,12 +29,37 @@ public class RequestBody{
 	@JsonProperty("prompt")
 	private String prompt;
 
+	// default values
+	public static final int DEFAULT_MAX_TOKENS = 512;
+	public static final Object DEFAULT_TEMPERATURE = 0.7;
+
+	// constructors
+
+	/**
+	 * Instantiates an empty RequestBody
+	 */
+	public RequestBody() {}
+
+	/**
+	 * Constructs a default RequestBody for the project
+	 * @param promptToUse the prompt for the AI to use
+	 */
+	public RequestBody(String promptToUse) {
+		this.topP = 1;
+		this.frequencyPenalty = 0;
+		this.maxTokens = DEFAULT_MAX_TOKENS;
+		this.presencePenalty = 0;
+		this.temperature = DEFAULT_TEMPERATURE;
+		this.model = "text-davinci-003";
+		this.prompt = promptToUse;
+	}
+
 	/**
 	 * Sets diversity value
-	 * @param topP diversity value max:1
+	 * @param topPToSet diversity value max:1
 	 */
-	public void setTopP(int topP){
-		this.topP = topP;
+	public void setTopP(int topPToSet){
+		this.topP = topPToSet;
 	}
 
 	/**
@@ -69,10 +73,10 @@ public class RequestBody{
 	/**
 	 * Sets penalty value for frequency of generated tokens max:2
 	 * Controls how often the AI is likely to repeat itself
-	 * @param frequencyPenalty penalty value
+	 * @param frequencyPenaltyToSet penalty value
 	 */
-	public void setFrequencyPenalty(int frequencyPenalty){
-		this.frequencyPenalty = frequencyPenalty;
+	public void setFrequencyPenalty(int frequencyPenaltyToSet){
+		this.frequencyPenalty = frequencyPenaltyToSet;
 	}
 
 	/**
@@ -85,10 +89,10 @@ public class RequestBody{
 
 	/**
 	 * Sets max tokens that AI can use to generate text max:2048
-	 * @param maxTokens max token value
+	 * @param maxTokensToSet max token value
 	 */
-	public void setMaxTokens(int maxTokens){
-		this.maxTokens = maxTokens;
+	public void setMaxTokens(int maxTokensToSet){
+		this.maxTokens = maxTokensToSet;
 	}
 
 	/**
@@ -102,10 +106,10 @@ public class RequestBody{
 	/**
 	 * Sets penalty value for frequency of generated tokens max:2
 	 * Controls how often the AI will talk about new topics
-	 * @param presencePenalty
+	 * @param presencePenaltyToSet
 	 */
-	public void setPresencePenalty(int presencePenalty){
-		this.presencePenalty = presencePenalty;
+	public void setPresencePenalty(int presencePenaltyToSet){
+		this.presencePenalty = presencePenaltyToSet;
 	}
 
 	/**
@@ -118,10 +122,10 @@ public class RequestBody{
 
 	/**
 	 * Sets the value of randomness the AI should use to generate response max:1
-	 * @param temperature
+	 * @param temperatureToSet
 	 */
-	public void setTemperature(Object temperature){
-		this.temperature = temperature;
+	public void setTemperature(Object temperatureToSet){
+		this.temperature = temperatureToSet;
 	}
 
 	/**
@@ -138,10 +142,10 @@ public class RequestBody{
 	 * text-curie-001 - as capable as davinci but slower and cheaper
 	 * text-babbage-001 - capable for staightforward tasks, fast, cheap
 	 * text-ada-001 - capable of simple tasks, cheapest and fastest of the GPT-3 series
-	 * @param model
+	 * @param modelToSet
 	 */
-	public void setModel(String model){
-		this.model = model;
+	public void setModel(String modelToSet){
+		this.model = modelToSet;
 	}
 
 	/**
@@ -154,10 +158,10 @@ public class RequestBody{
 
 	/**
 	 * Sets prompt the AI should base its response off
-	 * @param prompt
+	 * @param promptToSet
 	 */
-	public void setPrompt(String prompt){
-		this.prompt = prompt;
+	public void setPrompt(String promptToSet){
+		this.prompt = promptToSet;
 	}
 
 	/**
