@@ -31,3 +31,4 @@
 /src/test/resources/openai-api.properties
 /src/main/resources/logging.properties
 
+/.idea/
