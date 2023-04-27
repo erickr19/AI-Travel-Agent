@@ -98,7 +98,7 @@ public class Itinerary {
      * @param itineraryToSet the itinerary to set
      */
     public void setItinerary(String itineraryToSet) {
-        this.itinerary = itinerary;
+        this.itinerary = itineraryToSet;
     }
 
     /**

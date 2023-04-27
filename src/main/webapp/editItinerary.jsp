@@ -32,7 +32,7 @@
             <div class="mb-3">
               <label for="itinerary" class="form-label">Itinerary</label>
               <textarea class="form-control" id="itinerary" rows="20" aria-describedby="itineraryBody" name="itinerary" required>${itinerary.getItinerary()}</textarea>
-              <div id="itineraryHelp" class="form-text">You'll be able to edit this later too.</div>
+              <div id="itineraryHelp" class="form-text">Required. You'll be able to edit this later too.</div>
             </div>
             <%-- title --%>
             <div class="mb-3">
@@ -43,8 +43,8 @@
             <%-- budget --%>
             <div class="mb-3">
               <label for="budget" class="form-label">Budget</label>
-              <input type="text" class="form-control" id="budget" aria-describedby="itineraryBudget" name="budget" value="${itinerary.getBudget()}">
-              <div id="budgetHelp" class="form-text">The AI does not take budget into account when generating.</div>
+              <input type="text" class="form-control" id="budget" aria-describedby="itineraryBudget" name="budget" required value="${itinerary.getBudget()}">
+              <div id="budgetHelp" class="form-text">Required. The AI does not take budget into account when generating.</div>
             </div>
             <%-- date --%>
             <div class="mb-3">
