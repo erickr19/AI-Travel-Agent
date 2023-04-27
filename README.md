@@ -12,3 +12,14 @@ Unit Testing: JUnit for at least 80%+ code coverage<br>
 IDE: IntelliJ IDEA
 
 ## Design
+Wireframe:<br>
+https://github.com/erickr19/AI-Travel-Agent/blob/main/design-files/AI%20Travel%20Agent.pdf
+
+User stories:<br>
+https://github.com/erickr19/AI-Travel-Agent/blob/main/design-files/ai-agent-story-board.png
+
+Project plan:<br>
+https://github.com/erickr19/AI-Travel-Agent/blob/main/design-files/project-plan.md
+
+Time log:<br>
+https://github.com/erickr19/AI-Travel-Agent/blob/main/design-files/timeLog.md
