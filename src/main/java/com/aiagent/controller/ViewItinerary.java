@@ -58,14 +58,14 @@ public class ViewItinerary extends HttpServlet {
             dispatcher.forward(request, response);
     }
 
-    private Itinerary getItineraryDetails(Integer idToGet) {
+    public Itinerary getItineraryDetails(Integer idToGet) {
         // instantiate itineraryDao
         GenericDao itineraryDao = new GenericDao(Itinerary.class);
         // get requested itinerary
         return (Itinerary) itineraryDao.getById(idToGet);
     }
 
-    private String parseDateForDisplay(LocalDate date) {
+    public String parseDateForDisplay(LocalDate date) {
         // format date for display on HTML form
         DateTimeFormatter formattedDisplay = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         // get date string
