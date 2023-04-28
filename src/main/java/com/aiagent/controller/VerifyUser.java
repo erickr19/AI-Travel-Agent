@@ -34,7 +34,7 @@ public final class VerifyUser extends HttpServlet {
             // get email
             String email = (String)session.getAttribute("userEmail");
             // check database
-            checkDatabase(username, email);
+            checkDatabaseAndSetToSession(username, email);
             // set url
             String url = "/homepage";
             // get request dispatcher
@@ -43,7 +43,14 @@ public final class VerifyUser extends HttpServlet {
             dispatcher.forward(request, response);
     }
 
-    public void checkDatabase(String username, String email) {
+    public void checkDatabaseAndSetToSession(String username, String email) {
+        User user = getUser(username, email);
+        session.setAttribute("user", user);
+    }
+
+    public User getUser(String username, String email) {
+        // instance variables
+        User user;
         // instantiate userDao
         GenericDao userDao = new GenericDao(User.class);
         // check if username exists in db (always unique)
@@ -58,19 +65,16 @@ public final class VerifyUser extends HttpServlet {
             // insert user
             int newUserId = userDao.insert(newUser);
             // get newly created user
-            User createdUser = (User)userDao.getById(newUserId);
+            user = (User)userDao.getById(newUserId);
             // log user
-            logger.info("User created: " + createdUser.getUsername());
-            // set new user to session
-            session.setAttribute("user", createdUser);
+            logger.info("User created: " + user.getUsername());
         // else get existing user
         } else {
             // get found user
-            User foundUser = (User)foundUserByUsername.get(0);
+            user = (User)foundUserByUsername.get(0);
             // log user
-            logger.info("Found user: " + foundUser.getUsername());
-            // set existing user to session
-            session.setAttribute("user", foundUser);
+            logger.info("Found user: " + user.getUsername());
         }
+        return user;
     }
 }
