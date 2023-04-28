@@ -64,7 +64,7 @@ public final class Save extends HttpServlet {
             dispatcher.forward(request, response);
     }
 
-    private void save(String itinerary, String title, String budget, String date, String notes, User user) {
+    public boolean save(String itinerary, String title, String budget, String date, String notes, User user) {
         // instantiate itineraryDao
         GenericDao itineraryDao = new GenericDao(Itinerary.class);
         // convert budget to integer
@@ -75,9 +75,11 @@ public final class Save extends HttpServlet {
         Itinerary newItinerary = new Itinerary(itinerary, parsedBudget, parsedDate, notes, user, title);
         // save to db
         itineraryDao.insert(newItinerary);
+        // return boolean
+        return true;
     }
 
-    private LocalDate parseDateForStorage(String date) {
+    public LocalDate parseDateForStorage(String date) {
         // instantiate formatter
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         // return
