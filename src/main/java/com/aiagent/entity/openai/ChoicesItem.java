@@ -61,7 +61,7 @@ public class ChoicesItem{
 
 	/**
 	 * Sets text of response
-	 * @param texToSet response text
+	 * @param textToSet response text
 	 */
 	public void setText(String textToSet) {
 		this.text = textToSet;
