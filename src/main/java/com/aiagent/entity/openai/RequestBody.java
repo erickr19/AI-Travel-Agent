@@ -177,7 +177,7 @@ public class RequestBody{
 	 * @return string of all properties
 	 */
 	@Override
- 	public String toString(){
+ 	public String toString() {
 		return 
 			"RequestBody{" + 
 			"top_p = '" + topP + '\'' + 
