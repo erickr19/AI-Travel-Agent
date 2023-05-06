@@ -33,12 +33,12 @@
                             <h3>Have a personal AI travel agent plan it for you!</h3>
                             <%-- button container --%>
                             <c:if test="${empty user}">
-                            <div class="container justify-content-start mt-3 mt-sm-3 mt-md- d-flex p-0">
+                            <div class="container justify-content-start mt-3 mt-sm-3 mt-md-5 d-flex p-0">
                                 <a class="text-decoration-none" href="${pageContext.request.contextPath}/logIn"><button class="btn btn-primary border-black me-3">Sign-up / Log-in</button></a>
                             </div>
                             </c:if>
                             <c:if test="${not empty user}">
-                            <div class="container justify-content-start mt-3 d-flex p-0">
+                            <div class="container justify-content-start mt-3 mt-sm-3 mt-md-5 d-flex p-0">
                                 <a class="text-decoration-none" href="${pageContext.request.contextPath}/logout"><button class="btn btn-light border-black me-3">Logout</button></a>
                                 <a class="text-decoration-none" href="${pageContext.request.contextPath}/create"><button class="btn btn-primary border-black me-3">Create new itinerary</button></a>
                             </div>
