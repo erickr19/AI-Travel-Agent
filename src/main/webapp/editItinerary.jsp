@@ -31,30 +31,30 @@
             <%-- generated itinerary --%>
             <div class="mb-3">
               <label for="itinerary" class="form-label">Itinerary</label>
-              <textarea class="form-control" id="itinerary" rows="20" aria-describedby="itineraryBody" name="itinerary" required>${itinerary.getItinerary()}</textarea>
+              <textarea class="form-control" id="itinerary" rows="20" aria-describedby="itineraryBody" name="itinerary" maxlength="5000" required>${generatedItinerary}</textarea>
               <div id="itineraryHelp" class="form-text">Required. You'll be able to edit this later too.</div>
             </div>
             <%-- title --%>
             <div class="mb-3">
               <label for="title" class="form-label">Title</label>
-              <input type="text" class="form-control" id="title" aria-describedby="itineraryTitle" name="title" value="${itinerary.getTitle()}">
+              <input type="text" class="form-control" id="title" aria-describedby="itineraryTitle" name="title" maxlength="100">
               <div id="titleHelp" class="form-text">100 character limit</div>
             </div>
             <%-- budget --%>
             <div class="mb-3">
               <label for="budget" class="form-label">Budget</label>
-              <input type="text" class="form-control" id="budget" aria-describedby="itineraryBudget" name="budget" required value="${itinerary.getBudget()}">
+              <input type="number" class="form-control" id="budget" aria-describedby="itineraryBudget" name="budget" maxlength="6" required>
               <div id="budgetHelp" class="form-text">Required. The AI does not take budget into account when generating.</div>
             </div>
             <%-- date --%>
             <div class="mb-3">
               <label for="date" class="form-label">Date</label>
-              <input type="date" class="form-control" id="date" aria-describedby="itineraryTravelDate" name="date" value="${formattedDate}">
+              <input type="date" class="form-control" id="date" aria-describedby="itineraryTravelDate" name="date">
             </div>
             <%-- notes --%>
             <div class="mb-3">
               <label for="notes" class="form-label">Notes</label>
-              <input type="text" class="form-control" id="notes" aria-describedby="itineraryNotes" name="notes" value="${itinerary.getTravelDate()}">
+              <input type="text" class="form-control" id="notes" aria-describedby="itineraryNotes" name="notes" maxlength="1000">
               <div id="noteHelp" class="form-text">1000 character limit</div>
             </div>
             <%-- hidden id --%>
