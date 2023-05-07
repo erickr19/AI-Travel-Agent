@@ -27,7 +27,7 @@
                 <%-- text input --%>
                 <div>
                     <label for="promptForm" class="form-label">Itinerary prompt</label>
-                    <input type="text" class="form-control" id="promptForm" name="prompt" placeholder="Plan a two day trip to Madison, Wisconsin">
+                    <input type="text" class="form-control" id="promptForm" name="prompt" placeholder="Plan a two day trip to Madison, Wisconsin" autofocus>
                     <div id="promptHelp" class="form-text">Having "plan", trip length, and destination are essential for good results!</div>
                 </div>
                 <%-- enter and clear button container --%>
@@ -42,19 +42,19 @@
                 <%-- generated itinerary --%>
                 <div class="mb-3">
                     <label for="itinerary" class="form-label">Itinerary</label>
-                    <textarea class="form-control" id="itinerary" rows="20" aria-describedby="itineraryBody" name="itinerary" required>${generatedItinerary}</textarea>
+                    <textarea class="form-control" id="itinerary" rows="20" aria-describedby="itineraryBody" name="itinerary" maxlength="5000" required>${generatedItinerary}</textarea>
                     <div id="itineraryHelp" class="form-text">Required. You'll be able to edit this later too.</div>
                 </div>
                 <%-- title --%>
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="title" aria-describedby="itineraryTitle" name="title">
+                    <input type="text" class="form-control" id="title" aria-describedby="itineraryTitle" name="title" maxlength="100">
                     <div id="titleHelp" class="form-text">100 character limit</div>
                 </div>
                 <%-- budget --%>
                 <div class="mb-3">
                     <label for="budget" class="form-label">Budget</label>
-                    <input type="text" class="form-control" id="budget" aria-describedby="itineraryBudget" name="budget" required>
+                    <input type="number" class="form-control" id="budget" aria-describedby="itineraryBudget" name="budget" maxlength="6" required>
                     <div id="budgetHelp" class="form-text">Required. The AI does not take budget into account when generating.</div>
                 </div>
                 <%-- date --%>
@@ -65,7 +65,7 @@
                 <%-- notes --%>
                 <div class="mb-3">
                     <label for="notes" class="form-label">Notes</label>
-                    <input type="text" class="form-control" id="notes" aria-describedby="itineraryNotes" name="notes">
+                    <input type="text" class="form-control" id="notes" aria-describedby="itineraryNotes" name="notes" maxlength="1000">
                     <div id="noteHelp" class="form-text">1000 character limit</div>
                 </div>
                 <%-- enter and clear button container --%>
@@ -83,6 +83,7 @@
                     <li>Use the phrase "Create a [length of trip] trip to [destination]" for best results</li>
                     <li>Similar phrasing may work</li>
                     <li>Generalizing the prompt will give more general responses</li>
+                    <li>The most days this AI could work with is a week (7 days)</li>
                 </ul>
             </div>
             </c:if>
