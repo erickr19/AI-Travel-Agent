@@ -75,6 +75,17 @@
                 </div>
             </form>
             </c:if>
+            <%-- user guide --%>
+            <c:if test="${empty generatedItinerary}">
+            <div class="p-0 mt-5">
+                <h3>User guide to creating meaningful itineraries</h3>
+                <ul class="list-group list-group-flush p-3">
+                    <li>Use the phrase "Create a [length of trip] trip to [destination]" for best results</li>
+                    <li>Similar phrasing may work</li>
+                    <li>Generalizing the prompt will give more general responses</li>
+                </ul>
+            </div>
+            </c:if>
         </div>
     </div>
 </div>
